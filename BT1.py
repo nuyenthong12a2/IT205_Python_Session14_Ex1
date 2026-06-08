@@ -25,12 +25,33 @@
 # Câu 6 : Sửa đồi hàm 
 # đổi calculate_final_price , đổi dòng lệnh print ("đã tính xong tổng tiền :".total) (hoặc bỏ hẳn nó đi để đáp ứng yêu cầu output duy nhất ) và thêm vào lệnh return total 
 
-def calculate_final_price(price,discount,shipping_fee):
+def calculate_final_price(price, discount, shipping_fee):
+    """
+    Hàm tính tổng tiền thanh toán cuối cùng của hóa đơn.
+    
+    Tham số (Parameters):
+    - price (float/int): Giá gốc của sản phẩm.
+    - discount (float): Tỉ lệ giảm giá (ví dụ: 0.1 tương đương 10%).
+    - shipping_fee (float/int): Phí giao hàng.
+    
+    Trả về (Returns):
+    - total (float): Tổng chi phí sau khi giảm giá và cộng phí ship.
+    """
+
     total = price - (price * discount) + shipping_fee
-    return total 
+    return float(total)
 
-order_total = calculate_final_price(100000,0.1,15000)
 
-final_payment = order_total + 5000
+price_input = 100000
+discount_input = 0.1
+shipping_input = 15000
 
-print ("Khách hàng cần thanh toán :", final_payment)
+
+order_total = calculate_final_price(price_input, discount_input, shipping_input)
+
+
+packaging_fee = 5000
+final_payment = order_total + packaging_fee
+
+
+print(f"Khách hàng cần thanh toán: {final_payment:.1f}")
